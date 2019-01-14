@@ -77,6 +77,26 @@ function daysInAMonth(month, leapYear = false) {
   return `${month} has ${days} days`;
 }
 
+function rpsGame(choice) {
+  if (typeof choice !== 'number' || (choice > 3 || choice < 1)) {
+    throw new Error('Please provide a number between 1-3');
+  }
+
+  const compChoice = Math.floor(Math.random() * 3) + 1;
+  console.log(compChoice);
+  const difference = choice - compChoice;
+  let message;
+  if (difference === 0) {
+    message = 'You Tied';
+  } else if (difference === -1 || difference === 2) {
+    message = 'You win';
+  } else {
+    message = 'You Lose';
+  }
+
+  console.log(message);
+}
+
 //third drill
 const messageArray = 'craft block argon meter bells brown croon droop'.split(
   ' '
@@ -88,4 +108,7 @@ for (let i = 0; i < messageArray.length; i++) {
 }
 
 //fourth drill
-console.log(daysInAMonth('September'));
+//console.log(daysInAMonth('September'));
+
+//fifth drill
+rpsGame(2);
