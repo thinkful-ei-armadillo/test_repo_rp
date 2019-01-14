@@ -1,5 +1,4 @@
 'use strict';
-/*
 function jediName(firstName, lastName) {
   const jediName = lastName.slice(0, 3) + firstName.slice(0, 2);
   return jediName;
@@ -22,16 +21,16 @@ function beyond(num) {
       break;
   }
 }
-*/
+
 function decode(word) {
-  const firstLetter = word.slice(0,1);
+  const firstLetter = word.slice(0, 1);
   let index;
-  switch(firstLetter){
-    case 'a': 
-      index=2;
+  switch (firstLetter) {
+    case 'a':
+      index = 2;
       break;
     case 'b':
-      index=3;
+      index = 3;
       break;
     case 'c':
       index = 4;
@@ -39,20 +38,54 @@ function decode(word) {
     case 'd':
       index = 5;
       break;
-    default :
+    default:
       return ' ';
   }
 
-return word.charAt(index-1);
-
+  return word.charAt(index - 1);
 }
 
-const messageArray = 'craft block argon meter bells brown croon droop'.split(' ');
+function daysInAMonth(month, leapYear = false) {
+  let days;
+  switch (month) {
+    case 'January':
+    case 'March':
+    case 'May':
+    case 'July':
+    case 'August':
+    case 'October':
+    case 'December':
+      days = 31;
+      break;
+    case 'April':
+    case 'June':
+    case 'September':
+    case 'November':
+      days = 30;
+      break;
+    case 'February':
+      if (leapYear) {
+        days = 29;
+      } else {
+        days = 28;
+      }
+      break;
+    default:
+      throw new Error('Must provide a valid month');
+  }
+
+  return `${month} has ${days} days`;
+}
+
+//third drill
+const messageArray = 'craft block argon meter bells brown croon droop'.split(
+  ' '
+);
 let messageDecode = '';
 
-for(let i=0; i<messageArray.length; i++) {
+for (let i = 0; i < messageArray.length; i++) {
   messageDecode += decode(messageArray[i]);
 }
 
-console.log(messageDecode);
-
+//fourth drill
+console.log(daysInAMonth('September'));
